@@ -1,0 +1,111 @@
+.dog-selector {
+  background: #fff;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.picker-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.arrow {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.content-area {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.content-input {
+  width: 100%;
+  min-height: 200rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.char-count {
+  position: absolute;
+  right: 24rpx;
+  bottom: 24rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.image-section {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.image-item {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+}
+
+.delete-btn {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background: #ff4d4f;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-image {
+  width: 200rpx;
+  height: 200rpx;
+  border: 2rpx dashed #ddd;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-icon {
+  font-size: 60rpx;
+  color: #ccc;
+}
+
+.publish-btn {
+  margin-top: 40rpx;
+  background: #ccc;
+  color: #fff;
+  padding: 24rpx;
+  border-radius: 12rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.publish-btn.active {
+  background: #07c160;
+}

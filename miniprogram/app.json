@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/publish/publish",
+    "pages/walk/walk",
+    "pages/walk-detail/walk-detail",
+    "pages/profile/profile",
+    "pages/dog-profile/dog-profile",
+    "pages/dog-edit/dog-edit",
+    "pages/dog-friends/dog-friends",
+    "pages/dog-qr/dog-qr"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "狗狗圈",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/walk/walk",
+        "text": "约遛狗",
+        "iconPath": "images/tab-walk.png",
+        "selectedIconPath": "images/tab-walk-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tab-profile.png",
+        "selectedIconPath": "images/tab-profile-active.png"
+      }
+    ],
+    "selectedColor": "#07c160",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#07c160",
+    "navigationBarTitleText": "DogChat",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "cloud": true
+}

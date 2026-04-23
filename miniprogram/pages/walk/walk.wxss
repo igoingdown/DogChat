@@ -1,0 +1,90 @@
+.walk-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.walk-header {
+  margin-bottom: 20rpx;
+}
+
+.walk-body {
+  padding-left: 100rpx;
+}
+
+.walk-info {
+  margin-bottom: 12rpx;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.walk-status {
+  margin-top: 16rpx;
+}
+
+.status-text {
+  font-size: 26rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 8rpx;
+}
+
+.status-text.pending {
+  background: #fff7e6;
+  color: #faad14;
+}
+
+.status-text.accepted {
+  background: #f6ffed;
+  color: #52c41a;
+}
+
+.status-text.declined {
+  background: #fff1f0;
+  color: #ff4d4f;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 100rpx 40rpx;
+}
+
+.empty-state text {
+  display: block;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.hint {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+
+.create-btn {
+  position: fixed;
+  right: 40rpx;
+  bottom: 160rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #07c160;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx rgba(7, 193, 96, 0.4);
+}
+
+.plus {
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: 300;
+}

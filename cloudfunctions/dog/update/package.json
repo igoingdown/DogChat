@@ -1,0 +1,9 @@
+{
+  "name": "dog-update",
+  "version": "1.0.0",
+  "description": "更新狗狗档案",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

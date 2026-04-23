@@ -1,0 +1,9 @@
+{
+  "name": "moment-create",
+  "version": "1.0.0",
+  "description": "发布动态",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "friend-confirm",
+  "version": "1.0.0",
+  "description": "确认狗友请求",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

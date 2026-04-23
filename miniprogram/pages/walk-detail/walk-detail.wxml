@@ -1,0 +1,76 @@
+<view class="container">
+  <!-- 创建模式 -->
+  <view wx:if="{{mode === 'create'}}">
+    <view class="form card">
+      <view class="form-item">
+        <text class="label">约遛时间 *</text>
+        <picker mode="multiSelector" bindchange="onTimeChange" bindcolumnchange="onTimeColumnChange" value="{{timeIndex}}" range="{{timeRange}}">
+          <view class="picker">{{time || '请选择时间'}}</view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="label">地点 *</text>
+        <input class="input" placeholder="例如：朝阳公园南门" value="{{location}}" bindinput="onLocationInput"/>
+      </view>
+
+      <view class="form-item">
+        <text class="label">邀请狗友</text>
+        <view class="friend-select">
+          <view class="friend-tag {{item.selected ? 'selected' : ''}}" wx:for="{{friends}}" wx:key="dogId" bindtap="toggleFriend" data-index="{{index}}">
+            <image class="tag-avatar" src="{{item.avatar || '/images/default-dog.png'}}" mode="aspectFill"/>
+            <text class="tag-name">{{item.name}}</text>
+          </view>
+        </view>
+        <view wx:if="{{!friends.length}}" class="no-friends">
+          <text>还没有狗友，先去添加吧</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="save-btn {{time && location ? 'active' : ''}}" bindtap="submit">
+      <text>发起约遛</text>
+    </view>
+  </view>
+
+  <!-- 详情模式 -->
+  <view wx:if="{{mode === 'detail'}}">
+    <view class="detail-card card">
+      <view class="detail-header flex-center">
+        <image class="avatar" src="{{walk.creatorInfo?.avatar || '/images/default-dog.png'}}" mode="aspectFill"/>
+        <view class="ml-20">
+          <text class="dog-name">{{walk.creatorInfo?.name}}</text>
+          <text class="text-muted">发起了约遛</text>
+        </view>
+      </view>
+
+      <view class="detail-body">
+        <view class="detail-row">
+          <text class="detail-label">时间</text>
+          <text class="detail-value">{{walk.time}}</text>
+        </view>
+        <view class="detail-row">
+          <text class="detail-label">地点</text>
+          <text class="detail-value">{{walk.location}}</text>
+        </view>
+      </view>
+
+      <view class="responses">
+        <text class="responses-title">响应状态</text>
+        <view class="response-item" wx:for="{{walk.responses}}" wx:key="dogId">
+          <text class="response-name">{{item.dogName || item.dogId}}</text>
+          <text class="response-status {{item.status}}">{{item.status === 'accepted' ? '已接受' : item.status === 'declined' ? '已拒绝' : '待响应'}}</text>
+        </view>
+      </view>
+
+      <view class="action-bar" wx:if="{{isInvited && walk.status === 'active'}}">
+        <view class="action-btn accept" bindtap="respond" data-status="accepted">
+          <text>接受</text>
+        </view>
+        <view class="action-btn decline" bindtap="respond" data-status="declined">
+          <text>拒绝</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

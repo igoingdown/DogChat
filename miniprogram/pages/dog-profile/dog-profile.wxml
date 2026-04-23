@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="dog-header card">
+    <image class="dog-avatar-large" src="{{dog.avatar || '/images/default-dog.png'}}" mode="aspectFill"/>
+    <text class="dog-name-large">{{dog.name}}</text>
+    <text class="dog-meta" wx:if="{{dog.breed || dog.age}}">
+      {{dog.breed}} {{dog.age ? dog.age + '岁' : ''}} {{dog.gender}}
+    </text>
+  </view>
+
+  <view class="action-list">
+    <view class="action-item" bindtap="showQR">
+      <text class="action-text">出示二维码</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="action-item" bindtap="goFriends">
+      <text class="action-text">狗友列表</text>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+</view>

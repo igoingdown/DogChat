@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="walk-list">
+    <view class="walk-card" wx:for="{{walks}}" wx:key="walkId" bindtap="goDetail" data-walk="{{item}}">
+      <view class="walk-header flex-center">
+        <image class="avatar" src="{{item.creatorInfo.avatar || '/images/default-dog.png'}}" mode="aspectFill"/>
+        <view class="ml-20">
+          <text class="dog-name">{{item.creatorInfo.name}}</text>
+          <text class="text-muted">发起了约遛</text>
+        </view>
+      </view>
+      <view class="walk-body">
+        <view class="walk-info">
+          <text class="info-label">时间：</text>
+          <text class="info-value">{{item.time}}</text>
+        </view>
+        <view class="walk-info">
+          <text class="info-label">地点：</text>
+          <text class="info-value">{{item.location}}</text>
+        </view>
+        <view class="walk-status">
+          <text class="status-text {{item.myResponse === 'accepted' ? 'accepted' : item.myResponse === 'declined' ? 'declined' : 'pending'}}">
+            {{item.myResponse === 'accepted' ? '已接受' : item.myResponse === 'declined' ? '已拒绝' : '待响应'}}
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{!walks.length}}">
+    <text>还没有约遛</text>
+    <text class="hint">点击右下角发起约遛</text>
+  </view>
+
+  <view class="create-btn" bindtap="createWalk">
+    <text class="plus">+</text>
+  </view>
+</view>

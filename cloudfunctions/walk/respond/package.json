@@ -1,0 +1,9 @@
+{
+  "name": "walk-respond",
+  "version": "1.0.0",
+  "description": "响应约遛",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

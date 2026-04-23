@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="form card">
+    <view class="form-item">
+      <text class="label">狗狗头像</text>
+      <view class="avatar-upload" bindtap="chooseAvatar">
+        <image wx:if="{{avatar}}" class="avatar-preview" src="{{avatar}}" mode="aspectFill"/>
+        <view wx:else class="avatar-placeholder">
+          <text class="plus">+</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="label">名字 *</text>
+      <input class="input" placeholder="给狗狗起个名字" value="{{name}}" bindinput="onNameInput"/>
+    </view>
+
+    <view class="form-item">
+      <text class="label">品种</text>
+      <input class="input" placeholder="例如：柴犬、金毛" value="{{breed}}" bindinput="onBreedInput"/>
+    </view>
+
+    <view class="form-item">
+      <text class="label">年龄</text>
+      <input class="input" type="number" placeholder="几岁" value="{{age}}" bindinput="onAgeInput"/>
+    </view>
+
+    <view class="form-item">
+      <text class="label">性别</text>
+      <picker bindchange="onGenderChange" value="{{genderIndex}}" range="{{genders}}">
+        <view class="picker">{{gender || '请选择'}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="save-btn {{name ? 'active' : ''}}" bindtap="save">
+    <text>保存</text>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+<view class="container">
+  <view class="empty-state" wx:if="{{!friends.length}}">
+    <text>还没有狗友哦</text>
+    <text class="hint">出示二维码让朋友扫码添加</text>
+  </view>
+
+  <view class="friend-list">
+    <view class="friend-card" wx:for="{{friends}}" wx:key="dogId">
+      <image class="friend-avatar" src="{{item.avatar || '/images/default-dog.png'}}" mode="aspectFill"/>
+      <view class="friend-info">
+        <text class="friend-name">{{item.name}}</text>
+        <text class="friend-breed" wx:if="{{item.breed}}">{{item.breed}}</text>
+      </view>
+    </view>
+  </view>
+</view>

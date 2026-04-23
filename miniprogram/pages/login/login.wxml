@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="logo-area">
+    <image class="logo" src="/images/logo.png" mode="aspectFit"/>
+    <text class="app-name">DogChat</text>
+    <text class="slogan">让狗狗也有自己的朋友圈</text>
+  </view>
+
+  <view class="login-card card">
+    <text class="login-title">欢迎使用</text>
+    <text class="login-desc">微信一键登录，开始狗狗社交之旅</text>
+
+    <button class="login-btn" bindtap="login">
+      <text>微信登录</text>
+    </button>
+
+    <text class="hint">登录即表示同意《用户协议》和《隐私政策》</text>
+  </view>
+</view>

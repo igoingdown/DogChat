@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="dog-selector" wx:if="{{dogs.length > 1}}">
+    <picker bindchange="onDogChange" value="{{currentDogIndex}}" range="{{dogs}}" range-key="name">
+      <view class="picker-content">
+        <text class="current-dog">当前身份：{{currentDog.name}}</text>
+        <text class="arrow">▼</text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="empty-state" wx:if="{{!moments.length && !loading}}">
+    <text class="empty-text">还没有动态哦</text>
+    <text class="empty-subtext">添加狗友后可以看到他们的动态</text>
+  </view>
+
+  <view class="moment-list">
+    <view class="moment-card" wx:for="{{moments}}" wx:key="momentId">
+      <view class="moment-header flex-center">
+        <image class="avatar" src="{{item.dogInfo.avatar || '/images/default-dog.png'}}" mode="aspectFill"/>
+        <view class="ml-20">
+          <text class="dog-name">{{item.dogInfo.name}}</text>
+          <text class="text-muted">{{item.formattedTime}}</text>
+        </view>
+      </view>
+
+      <view class="moment-content">
+        <text class="content-text">{{item.content}}</text>
+        <view class="image-grid" wx:if="{{item.images.length}}">
+          <image wx:for="{{item.images}}" wx:for-item="img" wx:key="*this"
+                 class="grid-image {{item.images.length === 1 ? 'single' : ''}}"
+                 src="{{img}}" mode="aspectFill" bindtap="previewImage" data-urls="{{item.images}}" data-current="{{img}}"/>
+        </view>
+      </view>
+
+      <view class="moment-actions flex-between">
+        <view class="action-item" bindtap="onLike" data-moment-id="{{item.momentId}}">
+          <text class="icon">{{item.liked ? '❤️' : '🤍'}}</text>
+          <text class="count">{{item.likeCount}}</text>
+        </view>
+        <view class="action-item" bindtap="onComment" data-moment-id="{{item.momentId}}">
+          <text class="icon">💬</text>
+          <text class="count">{{item.commentCount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="loading-more" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+
+  <view class="publish-btn" bindtap="goPublish">
+    <text class="plus">+</text>
+  </view>
+</view>

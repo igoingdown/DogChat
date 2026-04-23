@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="qr-card card">
+    <view class="dog-info">
+      <image class="dog-avatar" src="{{dog.avatar || '/images/default-dog.png'}}" mode="aspectFill"/>
+      <text class="dog-name">{{dog.name}}</text>
+      <text class="hint">让朋友扫码添加狗友</text>
+    </view>
+    <canvas type="2d" id="qrCanvas" class="qr-canvas"></canvas>
+  </view>
+
+  <view class="save-btn" bindtap="saveQR">
+    <text>保存到相册</text>
+  </view>
+</view>

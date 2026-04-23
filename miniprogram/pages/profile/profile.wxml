@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="user-info card">
+    <image class="user-avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"/>
+    <text class="user-name">{{userInfo.nickName || '微信用户'}}</text>
+  </view>
+
+  <view class="dogs-section">
+    <view class="section-header flex-between">
+      <text class="section-title">我的狗狗</text>
+      <view class="add-btn" bindtap="addDog">
+        <text class="add-text">+ 添加狗狗</text>
+      </view>
+    </view>
+
+    <view class="dog-list">
+      <view class="dog-card" wx:for="{{dogs}}" wx:key="dogId" bindtap="goDogProfile" data-dog="{{item}}">
+        <image class="dog-avatar" src="{{item.avatar || '/images/default-dog.png'}}" mode="aspectFill"/>
+        <view class="dog-info">
+          <text class="dog-name">{{item.name}}</text>
+          <text class="dog-breed" wx:if="{{item.breed}}">{{item.breed}}</text>
+        </view>
+        <text class="arrow">›</text>
+      </view>
+    </view>
+
+    <view class="empty-dogs" wx:if="{{!dogs.length}}">
+      <text>还没有狗狗，快去添加吧</text>
+    </view>
+  </view>
+</view>

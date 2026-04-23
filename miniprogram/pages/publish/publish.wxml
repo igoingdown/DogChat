@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="dog-selector" wx:if="{{dogs.length > 1}}">
+    <picker bindchange="onDogChange" value="{{currentDogIndex}}" range="{{dogs}}" range-key="name">
+      <view class="picker-content">
+        <text>以 {{currentDog.name}} 的身份发布</text>
+        <text class="arrow">▼</text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="content-area">
+    <textarea
+      class="content-input"
+      placeholder="分享你和狗狗的趣事..."
+      maxlength="500"
+      bindinput="onContentInput"
+      value="{{content}}"
+    />
+    <text class="char-count">{{content.length}}/500</text>
+  </view>
+
+  <view class="image-section">
+    <view class="image-list">
+      <view class="image-item" wx:for="{{images}}" wx:key="*this">
+        <image class="preview-img" src="{{item}}" mode="aspectFill"/>
+        <view class="delete-btn" bindtap="deleteImage" data-index="{{index}}">×</view>
+      </view>
+      <view class="add-image" bindtap="chooseImage" wx:if="{{images.length < 9}}">
+        <text class="add-icon">+</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="publish-btn {{content || images.length ? 'active' : ''}}" bindtap="publish">
+    <text>发布</text>
+  </view>
+</view>

@@ -1,0 +1,92 @@
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: #e0e0e0;
+  margin-bottom: 20rpx;
+}
+
+.user-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.dogs-section {
+  margin-top: 20rpx;
+}
+
+.section-header {
+  padding: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.add-btn {
+  background: #07c160;
+  padding: 12rpx 24rpx;
+  border-radius: 8rpx;
+}
+
+.add-text {
+  color: #fff;
+  font-size: 26rpx;
+}
+
+.dog-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  align-items: center;
+}
+
+.dog-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #e0e0e0;
+}
+
+.dog-info {
+  flex: 1;
+  margin-left: 20rpx;
+}
+
+.dog-name {
+  font-size: 30rpx;
+  color: #333;
+  display: block;
+}
+
+.dog-breed {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+  display: block;
+}
+
+.arrow {
+  font-size: 36rpx;
+  color: #ccc;
+}
+
+.empty-dogs {
+  text-align: center;
+  padding: 80rpx;
+  color: #999;
+  font-size: 28rpx;
+}

@@ -1,0 +1,49 @@
+.empty-state {
+  text-align: center;
+  padding: 100rpx 40rpx;
+}
+
+.empty-state text {
+  display: block;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.hint {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 20rpx;
+}
+
+.friend-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  align-items: center;
+}
+
+.friend-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #e0e0e0;
+}
+
+.friend-info {
+  margin-left: 20rpx;
+}
+
+.friend-name {
+  font-size: 30rpx;
+  color: #333;
+  display: block;
+}
+
+.friend-breed {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+  display: block;
+}

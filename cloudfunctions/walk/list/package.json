@@ -1,0 +1,9 @@
+{
+  "name": "walk-list",
+  "version": "1.0.0",
+  "description": "查询约遛列表",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

@@ -1,0 +1,48 @@
+.qr-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 40rpx;
+}
+
+.dog-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.dog-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #e0e0e0;
+  margin-bottom: 16rpx;
+}
+
+.dog-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.hint {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.qr-canvas {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.save-btn {
+  margin-top: 40rpx;
+  background: #07c160;
+  color: #fff;
+  padding: 24rpx;
+  border-radius: 12rpx;
+  text-align: center;
+  font-size: 32rpx;
+}

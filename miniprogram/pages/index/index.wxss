@@ -1,0 +1,133 @@
+.dog-selector {
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+}
+
+.picker-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.current-dog {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.arrow {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 100rpx 40rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #666;
+  display: block;
+}
+
+.empty-subtext {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 20rpx;
+  display: block;
+}
+
+.moment-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.moment-header {
+  margin-bottom: 20rpx;
+}
+
+.dog-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  display: block;
+}
+
+.content-text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.grid-image {
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 12rpx;
+  background: #f0f0f0;
+}
+
+.grid-image.single {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.moment-actions {
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 20rpx;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 20rpx;
+}
+
+.icon {
+  font-size: 32rpx;
+}
+
+.count {
+  font-size: 26rpx;
+  color: #666;
+  margin-left: 10rpx;
+}
+
+.publish-btn {
+  position: fixed;
+  right: 40rpx;
+  bottom: 160rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: #07c160;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx rgba(7, 193, 96, 0.4);
+}
+
+.plus {
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: 300;
+}
+
+.loading-more {
+  text-align: center;
+  padding: 40rpx;
+  color: #999;
+  font-size: 26rpx;
+}
