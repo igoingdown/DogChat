@@ -51,22 +51,22 @@
 
 - [ ] 下载并安装 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
 - [ ] 用小程序管理员微信扫码登录
-- [ ] 导入项目，选择 `/Users/bytedance/github/DogChat` 目录
+- [ ] 导入项目，选择当前仓库根目录
 
 ### 2.2 配置项目
 
 - [ ] 修改 `project.config.json` 中的 `appid` 为你的真实小程序 AppID
 - [ ] 开通云开发：开发者工具 → 云开发 → 开通 → 创建环境
-- [ ] 修改 `miniprogram/app.js` 中的 `env: 'your-env-id'` 为你的云开发环境 ID
+- [ ] 如果有多个云开发环境，可在 `miniprogram/app.js` 的 `wx.cloud.init` 中显式指定 `env`
 
 ### 2.3 部署云函数
 
-- [ ] 在开发者工具中，右键 `cloudfunctions/user/login` → "创建并部署：云端安装依赖"
-- [ ] 同理部署所有云函数：
-  - `dog/create`、`dog/update`、`dog/list`
-  - `friend/request`、`friend/confirm`、`friend/list`
-  - `moment/create`、`moment/list`、`moment/like`、`moment/comment`
-  - `walk/create`、`walk/respond`、`walk/list`
+- [ ] 在开发者工具中，分别右键以下聚合云函数目录 → "创建并部署：云端安装依赖"
+  - `cloudfunctions/user`
+  - `cloudfunctions/dog`
+  - `cloudfunctions/friend`
+  - `cloudfunctions/moment`
+  - `cloudfunctions/walk`
 
 ### 2.4 创建数据库集合
 
@@ -80,9 +80,9 @@
   - `likes`
   - `walks`
 
-### 2.5 添加默认图片
+### 2.5 默认图片
 
-- [ ] 在 `miniprogram/images/` 目录下放置以下图片：
+- [x] `miniprogram/images/` 目录已包含以下占位图片，可后续替换为正式设计稿：
   - `default-dog.png` — 默认狗狗头像
   - `default-avatar.png` — 默认用户头像
   - `logo.png` — 登录页 logo
@@ -135,7 +135,7 @@
 |---|---|---|
 | 图片内容安全审核 | 中 | `moment/create` 目前只有文本审核，图片审核需接入 `mediaCheckAsync` 异步轮询 |
 | 二维码生成 | 中 | 当前用 canvas 绘制文字，应改用 `wxacode.getUnlimited` 生成小程序码 |
-| 默认图片缺失 | 高 | `images/` 目录下需要放置默认头像和 tabBar 图标 |
+| 正式视觉资源 | 中 | 当前 `images/` 目录为可运行占位图，后续应替换为正式 logo、头像和 tabBar 图标 |
 | 云函数冷启动 | 低 | 后期可用定时触发器保活 |
 | 图片压缩 | 低 | 当前前端压缩，可优化压缩质量 |
 

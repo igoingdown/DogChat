@@ -5,11 +5,11 @@ Page({
   data: {
     mode: 'create',
     walkId: '',
-    walk: {},
+    walk: { creatorInfo: {}, responses: [], invitedDogIds: [] },
     time: '',
     location: '',
     friends: [],
-    timeIndex: [0, 0, 0, 0],
+    timeIndex: [0, 0, 0],
     timeRange: [],
     isInvited: false
   },
@@ -49,6 +49,12 @@ Page({
     this.setData({ time: timeStr, timeIndex: [d, h, m] })
   },
 
+  onTimeColumnChange(e) {
+    const timeIndex = this.data.timeIndex
+    timeIndex[e.detail.column] = e.detail.value
+    this.setData({ timeIndex })
+  },
+
   onLocationInput(e) {
     this.setData({ location: e.detail.value })
   },
@@ -70,7 +76,7 @@ Page({
   },
 
   submit() {
-    const { time, location, friends, currentDog } = this.data
+    const { time, location, friends } = this.data
     const currentDogData = app.globalData.currentDog
 
     if (!time || !location) {
@@ -78,7 +84,16 @@ Page({
       return
     }
 
+    if (!currentDogData) {
+      wx.showToast({ title: '请先选择狗狗', icon: 'none' })
+      return
+    }
+
     const invitedDogIds = friends.filter(f => f.selected).map(f => f.dogId)
+    if (invitedDogIds.length === 0) {
+      wx.showToast({ title: '请至少选择一位狗友', icon: 'none' })
+      return
+    }
 
     api.createWalk({
       dogId: currentDogData.dogId,

@@ -22,14 +22,26 @@
 
     <view class="form-item">
       <text class="label">年龄</text>
-      <input class="input" type="number" placeholder="几岁" value="{{age}}" bindinput="onAgeInput"/>
+      <view class="age-row">
+        <input class="age-input" type="number" placeholder="岁" value="{{ageYears}}" bindinput="onAgeYearsInput"/>
+        <text class="age-unit">岁</text>
+        <input class="age-input" type="number" placeholder="月" value="{{ageMonths}}" bindinput="onAgeMonthsInput"/>
+        <text class="age-unit">月</text>
+        <input class="age-input" type="number" placeholder="天" value="{{ageDays}}" bindinput="onAgeDaysInput"/>
+        <text class="age-unit">天</text>
+      </view>
     </view>
 
     <view class="form-item">
       <text class="label">性别</text>
-      <picker bindchange="onGenderChange" value="{{genderIndex}}" range="{{genders}}">
-        <view class="picker">{{gender || '请选择'}}</view>
-      </picker>
+      <view class="gender-row">
+        <view class="gender-option {{gender === '♂' ? 'selected' : ''}}" bindtap="onGenderTap" data-gender="♂">
+          <text class="gender-symbol">♂</text>
+        </view>
+        <view class="gender-option {{gender === '♀' ? 'selected' : ''}}" bindtap="onGenderTap" data-gender="♀">
+          <text class="gender-symbol">♀</text>
+        </view>
+      </view>
     </view>
   </view>
 

@@ -18,7 +18,8 @@ Page({
       wx.redirectTo({ url: '/pages/login/login' })
       return
     }
-    this.setData({ userInfo: { nickName: app.globalData.userInfo?.nickName || '微信用户' } })
+    const userInfo = app.globalData.userInfo || {}
+    this.setData({ userInfo: { nickName: userInfo.nickName || '微信用户' } })
   },
 
   loadDogs() {

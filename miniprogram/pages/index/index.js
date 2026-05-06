@@ -67,7 +67,8 @@ Page({
       const formatted = moments.map(m => ({
         ...m,
         formattedTime: format.formatTime(m.createTime),
-        liked: false
+        liked: false,
+        comments: m.comments || []
       }))
 
       this.setData({
@@ -130,7 +131,18 @@ Page({
             wx.showToast({ title: '评论成功', icon: 'success' })
             const moments = this.data.moments.map(m => {
               if (m.momentId === momentId) {
-                return { ...m, commentCount: m.commentCount + 1 }
+                const newComment = {
+                  commentId: 'local_' + Date.now(),
+                  momentId,
+                  dogId: currentDog.dogId,
+                  content: res.content,
+                  dogInfo: { name: currentDog.name, avatar: currentDog.avatar || '' }
+                }
+                return {
+                  ...m,
+                  commentCount: m.commentCount + 1,
+                  comments: [...(m.comments || []), newComment]
+                }
               }
               return m
             })

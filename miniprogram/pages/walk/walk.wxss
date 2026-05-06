@@ -35,6 +35,7 @@
   font-size: 26rpx;
   padding: 8rpx 20rpx;
   border-radius: 8rpx;
+  display: inline-block;
 }
 
 .status-text.pending {

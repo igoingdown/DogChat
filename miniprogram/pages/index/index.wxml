@@ -42,6 +42,13 @@
           <text class="count">{{item.commentCount}}</text>
         </view>
       </view>
+
+      <view class="comment-list" wx:if="{{item.comments.length}}">
+        <view class="comment-item" wx:for="{{item.comments}}" wx:for-item="comment" wx:key="commentId">
+          <text class="comment-author">{{comment.dogInfo.name}}</text>
+          <text class="comment-text">：{{comment.content}}</text>
+        </view>
+      </view>
     </view>
   </view>
 

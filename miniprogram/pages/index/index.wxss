@@ -105,6 +105,28 @@
   margin-left: 10rpx;
 }
 
+.comment-list {
+  background: #f7f7f7;
+  border-radius: 8rpx;
+  padding: 16rpx 20rpx;
+  margin-top: 16rpx;
+}
+
+.comment-item {
+  font-size: 26rpx;
+  line-height: 1.6;
+  padding: 6rpx 0;
+}
+
+.comment-author {
+  color: #576b95;
+  font-weight: 500;
+}
+
+.comment-text {
+  color: #333;
+}
+
 .publish-btn {
   position: fixed;
   right: 40rpx;

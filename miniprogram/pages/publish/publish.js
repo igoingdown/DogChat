@@ -1,4 +1,5 @@
 const api = require('../../utils/api')
+const config = require('../../utils/config')
 const app = getApp()
 
 Page({
@@ -14,10 +15,11 @@ Page({
   onLoad() {
     const dogs = app.globalData.dogs
     const currentDog = app.globalData.currentDog
+    const currentDogIndex = Math.max(0, dogs.findIndex(d => currentDog && d.dogId === currentDog.dogId))
     this.setData({
       dogs,
       currentDog,
-      currentDogIndex: dogs.findIndex(d => d.dogId === currentDog?.dogId) || 0
+      currentDogIndex
     })
   },
 
@@ -53,6 +55,7 @@ Page({
   uploadImages() {
     const { images } = this.data
     if (images.length === 0) return Promise.resolve([])
+    if (config.enableMock) return Promise.resolve(images)
 
     const uploads = images.map(path => {
       return wx.cloud.uploadFile({

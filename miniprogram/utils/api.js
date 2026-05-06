@@ -1,6 +1,11 @@
-const app = getApp()
+const config = require('./config')
+const mock = require('./mock-store')
 
 function callFunction(name, data = {}) {
+  if (config.enableMock) {
+    return mock.callFunction(name, data)
+  }
+
   return wx.cloud.callFunction({ name, data })
     .then(res => {
       if (res.result && res.result.code !== 0) {

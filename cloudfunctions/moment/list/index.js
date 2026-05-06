@@ -42,9 +42,39 @@ exports.main = async (event, context) => {
       })
     }
 
+    const momentIds = moments.map(m => m.momentId)
+    let commentsMap = {}
+    if (momentIds.length > 0) {
+      const commentsRes = await db.collection('comments')
+        .where({ momentId: _.in(momentIds) })
+        .orderBy('createTime', 'asc')
+        .limit(100)
+        .get()
+
+      const commentDogIds = [...new Set(commentsRes.data.map(c => c.dogId))]
+      let commentDogsMap = {}
+      if (commentDogIds.length > 0) {
+        const commentDogsRes = await db.collection('dogs').where({ dogId: _.in(commentDogIds) }).get()
+        commentDogsRes.data.forEach(dog => {
+          commentDogsMap[dog.dogId] = dog
+        })
+      }
+
+      commentsRes.data.forEach(comment => {
+        if (!commentsMap[comment.momentId]) {
+          commentsMap[comment.momentId] = []
+        }
+        commentsMap[comment.momentId].push({
+          ...comment,
+          dogInfo: commentDogsMap[comment.dogId] || { name: '未知狗狗', avatar: '' }
+        })
+      })
+    }
+
     const enrichedMoments = moments.map(moment => ({
       ...moment,
-      dogInfo: dogsMap[moment.dogId] || { name: '未知狗狗', avatar: '' }
+      dogInfo: dogsMap[moment.dogId] || { name: '未知狗狗', avatar: '' },
+      comments: commentsMap[moment.momentId] || []
     }))
 
     return { code: 0, data: enrichedMoments, message: '查询成功' }

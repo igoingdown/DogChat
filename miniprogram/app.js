@@ -1,3 +1,6 @@
+const api = require('./utils/api')
+const config = require('./utils/config')
+
 App({
   globalData: {
     userInfo: null,
@@ -7,10 +10,11 @@ App({
   },
 
   onLaunch() {
-    wx.cloud.init({
-      env: 'your-env-id',
-      traceUser: true
-    })
+    if (!config.enableMock && wx.cloud) {
+      wx.cloud.init({
+        traceUser: true
+      })
+    }
 
     const openid = wx.getStorageSync('openid')
     if (openid) {
@@ -23,16 +27,13 @@ App({
     const openid = this.globalData.openid
     if (!openid) return
 
-    wx.cloud.callFunction({
-      name: 'dog',
-      data: { action: 'list' }
-    }).then(res => {
-      const dogs = res.result.data || []
+    api.listDogs().then(res => {
+      const dogs = res.data || []
       this.globalData.dogs = dogs
       if (dogs.length > 0 && !this.globalData.currentDog) {
         this.globalData.currentDog = dogs[0]
       }
-    })
+    }).catch(() => {})
   },
 
   setCurrentDog(dog) {

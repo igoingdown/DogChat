@@ -1,4 +1,5 @@
 const app = getApp()
+const qrcode = require('../../utils/qrcode')
 
 Page({
   data: {
@@ -14,39 +15,41 @@ Page({
   },
 
   drawQR(dogId) {
+    const content = `dogchat://dog/${dogId}`
     const query = wx.createSelectorQuery()
     query.select('#qrCanvas').fields({ node: true, size: true }).exec((res) => {
+      if (!res[0]) return
       const canvas = res[0].node
       const ctx = canvas.getContext('2d')
       const dpr = wx.getSystemInfoSync().pixelRatio
-      canvas.width = res[0].width * dpr
-      canvas.height = res[0].height * dpr
+      const width = res[0].width
+      canvas.width = width * dpr
+      canvas.height = width * dpr
       ctx.scale(dpr, dpr)
 
-      ctx.fillStyle = '#fff'
-      ctx.fillRect(0, 0, res[0].width, res[0].height)
-
-      ctx.fillStyle = '#333'
-      ctx.font = '20px sans-serif'
-      ctx.textAlign = 'center'
-      ctx.fillText(`dogchat://dog/${dogId}`, res[0].width / 2, res[0].height / 2)
+      qrcode.drawQRCode(ctx, content, width)
     })
   },
 
   saveQR() {
-    wx.canvasToTempFilePath({
-      canvasId: 'qrCanvas',
-      success: (res) => {
-        wx.saveImageToPhotosAlbum({
-          filePath: res.tempFilePath,
-          success: () => {
-            wx.showToast({ title: '保存成功', icon: 'success' })
-          },
-          fail: () => {
-            wx.showToast({ title: '保存失败', icon: 'none' })
-          }
-        })
-      }
+    const query = wx.createSelectorQuery()
+    query.select('#qrCanvas').fields({ node: true, size: true }).exec((res) => {
+      if (!res[0]) return
+      const canvas = res[0].node
+      wx.canvasToTempFilePath({
+        canvas,
+        success: (tmpRes) => {
+          wx.saveImageToPhotosAlbum({
+            filePath: tmpRes.tempFilePath,
+            success: () => {
+              wx.showToast({ title: '保存成功', icon: 'success' })
+            },
+            fail: () => {
+              wx.showToast({ title: '保存失败', icon: 'none' })
+            }
+          })
+        }
+      })
     })
   }
 })

@@ -37,9 +37,9 @@
   <view wx:if="{{mode === 'detail'}}">
     <view class="detail-card card">
       <view class="detail-header flex-center">
-        <image class="avatar" src="{{walk.creatorInfo?.avatar || '/images/default-dog.png'}}" mode="aspectFill"/>
+        <image class="avatar" src="{{walk.creatorInfo.avatar || '/images/default-dog.png'}}" mode="aspectFill"/>
         <view class="ml-20">
-          <text class="dog-name">{{walk.creatorInfo?.name}}</text>
+          <text class="dog-name">{{walk.creatorInfo.name}}</text>
           <text class="text-muted">发起了约遛</text>
         </view>
       </view>
